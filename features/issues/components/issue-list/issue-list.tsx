@@ -39,7 +39,7 @@ export function IssueList() {
     {} as Record<string, ProjectLanguage>,
   );
   const { items, meta } = issuesPage.data || {};
-
+  console.log("Data:", issuesPage.data);
   return (
     <div className={styles.container}>
       <table className={styles.table}>
