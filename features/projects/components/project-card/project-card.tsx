@@ -30,7 +30,6 @@ const statusTexts = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const { name, language, numIssues, numEvents24h, status } = project;
-  console.log("status: ", status);
   return (
     <div className={styles.container}>
       <div className={styles.topContainer}>
