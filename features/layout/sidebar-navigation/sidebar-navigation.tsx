@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Routes } from "@config/routes";
 import classNames from "classnames";
 import { NavigationContext } from "./navigation-context";
@@ -23,6 +23,19 @@ export function SidebarNavigation() {
   const openMailLink = useContext(MailLinkContext).openMailLink;
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    // Returns true if on desktop
+    const mediaQuery = window.matchMedia(`(min-width: 64em)`);
+    const handleMediaQueryChange = (e: MediaQueryListEvent) => {
+      setIsMobile(!e.matches);
+    };
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
   return (
     <div
       className={classNames(
@@ -40,9 +53,11 @@ export function SidebarNavigation() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={
-              isSidebarCollapsed
-                ? "/icons/logo-small.svg"
-                : "/icons/logo-large.svg"
+              isMobile
+                ? "/icons/logo-large.svg"
+                : isSidebarCollapsed
+                  ? "/icons/logo-small.svg"
+                  : "/icons/logo-large.svg"
             }
             alt="logo"
             className={styles.logo}
