@@ -2,6 +2,7 @@
 @use "@styles/font";
 @use "@styles/space";
 @use "@styles/breakpoint";
+@use "@styles/z-index";
 @use "@styles/misc";
 
 .container {
@@ -42,4 +43,11 @@
   margin-bottom: space.$s8;
   color: color.$gray-500;
   font: font.$text-md-regular;
+}
+
+.footer {
+  // 60/960 is based on Figma design. It may be better to import this as a var from misc.scss
+  min-height: calc(100vh * 60 / 960);
+  min-width: 100vw;
+  background-color: yellow;
 }
