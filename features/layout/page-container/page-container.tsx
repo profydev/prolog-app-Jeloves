@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { SidebarNavigation } from "../sidebar-navigation";
 import styles from "./page-container.module.scss";
+import Link from "next/link";
 
 type PageContainerProps = {
   children: React.ReactNode;
@@ -26,7 +27,29 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
           <div className={styles.info}>{info}</div>
           {children}
         </div>
-        <footer className={styles.footer}></footer>
+        <footer className={styles.footer}>
+          <div className={styles.footerContent}>
+            <div className={styles.linksContainer}>
+              <Link href="#" className={styles.link}>
+                Docs
+              </Link>
+              <Link href="#" className={styles.link}>
+                API
+              </Link>
+              <Link href="#" className={styles.link}>
+                Help
+              </Link>
+              <Link href="#" className={styles.link}>
+                Community
+              </Link>
+            </div>
+            <div className={styles.logoWrap}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/icons/logo-small.svg" alt="logo"></img>
+            </div>
+            <p className={styles.version}>Version 14.51</p>
+          </div>
+        </footer>
       </main>
     </div>
   );

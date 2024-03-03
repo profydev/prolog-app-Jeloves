@@ -20,7 +20,7 @@
 }
 
 .contentContainer {
-  min-height: calc(100vh - 2 * space.$s8 - misc.$header-height);
+  min-height: fit-content;
   margin-top: misc.$header-height;
   padding: space.$s8 space.$s3;
   background: white;
@@ -46,8 +46,44 @@
 }
 
 .footer {
-  // 60/960 is based on Figma design. It may be better to import this as a var from misc.scss
-  min-height: calc(100vh * 60 / 960);
-  min-width: 100vw;
-  background-color: yellow;
+  background-color: color.$gray-50;
+  color: color.$gray-500;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  @media (min-width: breakpoint.$desktop) {
+    min-width: 50px;
+  }
+}
+
+.footerContent {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logoWrap {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.version {
+  margin: 0;
+  font: font.$text-md-medium;
+}
+
+.linksContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.link {
+  color: color.$gray-500;
+  text-decoration: none;
+  font: font.$text-md-medium;
 }
