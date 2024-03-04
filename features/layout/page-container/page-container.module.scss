@@ -11,22 +11,30 @@
   background: color.$gray-900;
 
   @media (min-width: breakpoint.$desktop) {
-    flex-direction: row;
+    // The following code is from the solution (Issue: footer)
+    display: grid;
+    grid-template: "navigation content" 1fr "navigation footer" auto / auto 1fr;
+  }
+}
+
+.navigation {
+  // The following code is from the solution (Issue: footer)
+  @media (min-width: breakpoint.$desktop) {
+    grid-area: navigation;
   }
 }
 
 .main {
-  flex: 1;
+  display: flex;
 }
 
 .contentContainer {
-  min-height: fit-content;
+  flex: 1;
   margin-top: misc.$header-height;
   padding: space.$s8 space.$s3;
   background: white;
 
   @media (min-width: breakpoint.$desktop) {
-    min-height: calc(100vh - space.$s3 - 2 * space.$s8);
     margin-top: space.$s3;
     padding: space.$s8;
     border-top-left-radius: space.$s10;
@@ -43,47 +51,4 @@
   margin-bottom: space.$s8;
   color: color.$gray-500;
   font: font.$text-md-regular;
-}
-
-.footer {
-  background-color: color.$gray-50;
-  color: color.$gray-500;
-  padding-left: 12px;
-  padding-right: 12px;
-
-  @media (min-width: breakpoint.$desktop) {
-    min-width: 50px;
-  }
-}
-
-.footerContent {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.logoWrap {
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-
-.version {
-  margin: 0;
-  font: font.$text-md-medium;
-}
-
-.linksContainer {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 24px;
-}
-
-.link {
-  color: color.$gray-500;
-  text-decoration: none;
-  font: font.$text-md-medium;
 }
