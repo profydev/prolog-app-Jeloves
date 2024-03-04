@@ -6,7 +6,12 @@ export function ProjectList() {
   const { data, isLoading, isError, error } = useGetProjects();
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return (
+      <div className={styles.loading}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/icons/loading-circle.svg" alt="loading icon"></img>
+      </div>
+    );
   }
 
   if (isError) {
