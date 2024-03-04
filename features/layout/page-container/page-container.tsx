@@ -30,24 +30,28 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
         <footer className={styles.footer}>
           <div className={styles.footerContent}>
             <div className={styles.linksContainer}>
-              <Link href="#" className={styles.link}>
+              <Link href="#" className={styles.link} data-testid="footer-link">
                 Docs
               </Link>
-              <Link href="#" className={styles.link}>
+              <Link href="#" className={styles.link} data-testid="footer-link">
                 API
               </Link>
-              <Link href="#" className={styles.link}>
+              <Link href="#" className={styles.link} data-testid="footer-link">
                 Help
               </Link>
-              <Link href="#" className={styles.link}>
+              <Link href="#" className={styles.link} data-testid="footer-link">
                 Community
               </Link>
             </div>
             <div className={styles.logoWrap}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/icons/logo-small.svg" alt="logo"></img>
+              <img
+                src="/icons/logo-small.svg"
+                alt="logo"
+                data-testid="footer-logo"
+              ></img>
             </div>
-            <p className={styles.version}>Version 14.51</p>
+            <p className={styles.version}>Version: {process.env.appVersion}</p>
           </div>
         </footer>
       </main>
