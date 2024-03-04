@@ -1,6 +1,6 @@
 import { version } from "../../package.json";
 
-describe("Page Container", () => {
+describe("Footer", () => {
   beforeEach(() => {
     // open projects page
     cy.visit("http://localhost:3000/dashboard");
