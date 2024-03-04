@@ -9,7 +9,11 @@ export function ProjectList() {
     return (
       <div className={styles.loading}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/icons/loading-circle.svg" alt="loading icon"></img>
+        <img
+          src="/icons/loading-circle.svg"
+          alt="loading icon"
+          data-testid="loading-icon"
+        ></img>
       </div>
     );
   }
