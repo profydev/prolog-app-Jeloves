@@ -6,7 +6,10 @@
 @use "@styles/misc";
 
 .container {
-  display: flex;
+  height: 100vh;
+  display: grid;
+  grid-template:
+    "navigation" auto "content" 1fr "footer" auto / 1fr;
   flex-direction: column;
   background: color.$gray-900;
 
@@ -18,14 +21,12 @@
 }
 
 .navigation {
-  // The following code is from the solution (Issue: footer)
-  @media (min-width: breakpoint.$desktop) {
-    grid-area: navigation;
-  }
+  grid-area: navigation;
 }
 
 .main {
   display: flex;
+  grid-area: content;
 }
 
 .contentContainer {
