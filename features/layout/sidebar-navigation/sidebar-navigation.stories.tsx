@@ -1,6 +1,9 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import { SidebarNavigation } from "./sidebar-navigation";
+import {
+  SidebarNavigation,
+  SidebarNavigationProps,
+} from "./sidebar-navigation";
 import { Routes } from "@config/routes";
 
 export default {
@@ -12,7 +15,9 @@ export default {
   },
 } as Meta<typeof SidebarNavigation>;
 
-const Template: StoryFn<typeof SidebarNavigation> = () => <SidebarNavigation />;
+const Template: StoryFn<SidebarNavigationProps> = (args) => (
+  <SidebarNavigation {...args} />
+);
 
 export const Default = Template.bind({});
 Default.parameters = {

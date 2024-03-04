@@ -17,7 +17,12 @@ const menuItems = [
   { text: "Settings", iconSrc: "/icons/settings.svg", href: Routes.settings },
 ];
 
-export function SidebarNavigation() {
+// The following code is from the solution (Issue: footer)
+export type SidebarNavigationProps = {
+  className: string;
+};
+
+export function SidebarNavigation({ className }: SidebarNavigationProps) {
   const router = useRouter();
   const { isSidebarCollapsed, toggleSidebar } = useContext(NavigationContext);
   const openMailLink = useContext(MailLinkContext).openMailLink;
@@ -41,6 +46,7 @@ export function SidebarNavigation() {
       className={classNames(
         styles.container,
         isSidebarCollapsed && styles.isCollapsed,
+        className,
       )}
     >
       <div

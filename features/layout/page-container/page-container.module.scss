@@ -11,22 +11,31 @@
   background: color.$gray-900;
 
   @media (min-width: breakpoint.$desktop) {
-    flex-direction: row;
+    // The following code is from the solution (Issue: footer)
+    display: grid;
+    grid-template:
+      "navigation content" 1fr "navigation footer" auto / auto 1fr;
+  }
+}
+
+.navigation {
+  // The following code is from the solution (Issue: footer)
+  @media (min-width: breakpoint.$desktop) {
+    grid-area: navigation;
   }
 }
 
 .main {
-  flex: 1;
+  display: flex;
 }
 
 .contentContainer {
-  min-height: fit-content;
+  flex: 1;
   margin-top: misc.$header-height;
   padding: space.$s8 space.$s3;
   background: white;
 
   @media (min-width: breakpoint.$desktop) {
-    min-height: calc(100vh - space.$s3 - 2 * space.$s8);
     margin-top: space.$s3;
     padding: space.$s8;
     border-top-left-radius: space.$s10;

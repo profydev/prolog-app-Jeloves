@@ -20,7 +20,7 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SidebarNavigation />
+      <SidebarNavigation className={styles.navigation} />
       <main className={styles.main}>
         <div className={styles.contentContainer}>
           <h1 className={styles.title}>{title}</h1>
