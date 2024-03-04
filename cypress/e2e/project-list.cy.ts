@@ -6,13 +6,11 @@ describe("Project List", () => {
     // setup request mock
     cy.intercept("GET", "https://prolog-api.profy.dev/project", {
       fixture: "projects.json",
+      delay: 2000,
     }).as("getProjects");
 
     // open projects page
     cy.visit("http://localhost:3000/dashboard");
-
-    // wait for request to resolve
-    cy.wait("@getProjects");
   });
 
   context("desktop resolution", () => {
@@ -20,7 +18,17 @@ describe("Project List", () => {
       cy.viewport(1025, 900);
     });
 
+    it("renders and removes loading screen", () => {
+      cy.get("main")
+        .find('[data-testid="loading-icon"]')
+        .should("have.attr", "src", "/icons/loading-circle.svg");
+
+      cy.wait("@getProjects");
+      cy.get("main").should("not.contain", '[data-testid="loading-icon"]');
+    });
+
     it("renders the projects", () => {
+      cy.wait("@getProjects");
       const languageNames = ["React", "Node.js", "Python"];
       const statusTexts = new Map([
         ["error", "critical"],
