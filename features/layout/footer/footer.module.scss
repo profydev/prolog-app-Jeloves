@@ -15,7 +15,7 @@
 
   @media (min-width: breakpoint.$desktop) {
     padding: 0;
-    height: 60px;
+    height: space.$s15;
   }
 }
 
@@ -28,11 +28,10 @@
   gap: space.$s6;
 
   @media (min-width: breakpoint.$desktop) {
-    padding: 0 32px;
-    background-color: blue;
-    display: flex;
+    padding: 0 space.$s8;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     align-self: stretch;
   }
 }
@@ -69,6 +68,8 @@
   }
 
   @media (min-width: breakpoint.$desktop) {
+    min-width: space.$s28;
+    align-items: flex-end;
     padding: 0;
     order: 3;
   }
@@ -80,6 +81,7 @@
   margin: 0;
 
   @media (min-width: breakpoint.$desktop) {
+    min-width: space.$s28;
     order: 1;
   }
 }
