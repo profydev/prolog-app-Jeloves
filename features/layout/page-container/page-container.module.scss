@@ -13,8 +13,7 @@
   @media (min-width: breakpoint.$desktop) {
     // The following code is from the solution (Issue: footer)
     display: grid;
-    grid-template:
-      "navigation content" 1fr "navigation footer" auto / auto 1fr;
+    grid-template: "navigation content" 1fr "navigation footer" auto / auto 1fr;
   }
 }
 
