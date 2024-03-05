@@ -32,7 +32,7 @@
 
   @media (min-width: breakpoint.$desktop) {
     margin-top: space.$s3;
-    padding: space.$s8;
+    padding: space.$s8 space.$s6;
     border-top-left-radius: space.$s10;
   }
 }
@@ -41,10 +41,18 @@
   margin: space.$s0 space.$s0 space.$s1;
   color: color.$gray-900;
   font: font.$display-sm-medium;
+
+  @media (min-width: breakpoint.$desktop) {
+    padding: 0 space.$s2;
+  }
 }
 
 .info {
   margin-bottom: space.$s8;
   color: color.$gray-500;
   font: font.$text-md-regular;
+
+  @media (min-width: breakpoint.$desktop) {
+    padding: 0 space.$s2;
+  }
 }
