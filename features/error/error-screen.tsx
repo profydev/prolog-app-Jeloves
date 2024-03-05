@@ -7,7 +7,7 @@ export type ErrorScreenProps = {
 
 export function ErrorScreen({ onClick }: ErrorScreenProps) {
   return (
-    <div className={styles.errorContainer}>
+    <div className={styles.errorContainer} data-testid="error-screen">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/icons/alert-circle.svg"
@@ -15,11 +15,15 @@ export function ErrorScreen({ onClick }: ErrorScreenProps) {
         data-testid="alert-icon"
       />
       <div className={styles.errorContent}>
-        <p className={styles.errorText}>
+        <p className={styles.errorText} data-testid="error-text">
           There was a problem while loading the project data
         </p>
-        <Button className={styles.retry} onClick={onClick}>
-          <p>Try Again</p>
+        <Button
+          className={styles.retry}
+          onClick={onClick}
+          data-testid="retry-button"
+        >
+          <p data-testid="retry-text">Try Again</p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/icons/arrow-right.svg"
