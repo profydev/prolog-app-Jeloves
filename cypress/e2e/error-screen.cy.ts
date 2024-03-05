@@ -3,14 +3,15 @@ import mockProjects from "../fixtures/projects.json";
 
 describe("Error Screen", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/dashboard");
-
     // Intercept the failed API request
     cy.intercept("GET", "https://prolog-api.profy.dev/project", {
-      statusCode: 500,
+      forceNetworkError: true,
     }).as("getProjectsFailure");
+
+    cy.visit("http://localhost:3000/dashboard");
+
     cy.wait("@getProjectsFailure");
-    cy.wait(4000);
+    cy.wait(7000);
   });
 
   it("renders the error screen", () => {
