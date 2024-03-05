@@ -1,0 +1,57 @@
+@use "styles/color";
+@use "styles/font";
+@use "styles/space";
+
+.errorContainer {
+  display: flex;
+  padding: space.$s4;
+  justify-content: center;
+  align-items: center;
+  gap: space.$s3;
+  align-self: stretch;
+  border-radius: space.$s2;
+  border: 1px solid color.$error-300;
+  background: color.$error-25;
+
+  img {
+    width: space.$s5;
+    height: space.$s5;
+  }
+}
+
+.errorContent {
+  display: flex;
+  align-items: center;
+  gap: space.$s3;
+  flex: 1 0 0;
+}
+
+.errorText {
+  font: font.$text-sm-medium;
+  color: color.$error-700;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: 4px;
+  flex: 1 0 0;
+  margin-block: 0;
+}
+
+.retry {
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: space.$s2;
+  font: font.$text-sm-medium;
+  color: color.$error-700;
+  border-radius: 8px;
+
+  p {
+    margin-block: 0;
+    display: inline;
+    white-space: nowrap;
+  }
+}
