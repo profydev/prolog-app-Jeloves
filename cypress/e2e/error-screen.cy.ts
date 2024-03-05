@@ -4,6 +4,8 @@ import mockProjects from "../fixtures/projects.json";
 describe("Error Screen", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/dashboard");
+
+    // Intercept the failed API request
     cy.intercept("GET", "https://prolog-api.profy.dev/project", {
       statusCode: 500,
     }).as("getProjectsFailure");
@@ -12,38 +14,29 @@ describe("Error Screen", () => {
   });
 
   it("renders the error screen", () => {
-    cy.get("div").find('[data-testid="error-screen"]');
+    cy.get('[data-testid="error-screen"]').should("be.visible");
   });
 
   it("renders correct alert logo and right-arrow logo", () => {
-    cy.get("div").find('[data-testid="alert-icon"]');
-    cy.get("div").find('[data-testid="retry-icon"]');
+    cy.get('[data-testid="alert-icon"]').should("be.visible");
+    cy.get('[data-testid="retry-icon"]').should("be.visible");
   });
 
   it("renders correct text", () => {
-    cy.get("div")
-      .find('[data-testid="error-text"]')
+    cy.get('[data-testid="error-text"]')
       .should("be.visible")
-      .should(($el) => {
-        expect($el.text()).to.equal(
-          "There was a problem while loading the project data",
-        );
-      });
-    cy.get("div")
-      .find('[data-testid="retry-text"]')
+      .contains("There was a problem while loading the project data");
+
+    cy.get('[data-testid="retry-text"]')
       .should("be.visible")
-      .should(($el) => {
-        expect($el.text()).to.equal("Try Again");
-      });
+      .contains("Try Again");
   });
 
   it("reloads data when retry button is clicked", () => {
-    cy.get("div")
-      .find('[data-testid="retry-button"]')
-      .should("be.visible")
-      .click();
+    // Clicking the retry button
+    cy.get('[data-testid="retry-button"]').should("be.visible").click();
 
-    // setup request mock
+    // Intercepting the successful API request
     cy.intercept("GET", "https://prolog-api.profy.dev/project", {
       fixture: "projects.json",
       delay: 2000,
