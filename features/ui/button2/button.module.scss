@@ -63,3 +63,47 @@
     background-color: color.$primary-200;
   }
 }
+
+.secondary {
+  border-color: color.$primary-50;
+  background-color: color.$primary-50;
+  color: color.$primary-700;
+
+  &:hover {
+    border-color: color.$primary-100;
+    background-color: color.$primary-100;
+  }
+
+  &:focus {
+    box-shadow:
+      0 0 0 4px color.$primary-100,
+      0 1px 2px 0 rgb(16 24 40 / 5%);
+  }
+
+  &:disabled {
+    border-color: color.$primary-25;
+    background-color: color.$primary-25;
+    color: color.$primary-300;
+  }
+}
+
+.gray {
+  border-color: color.$gray-300;
+  background-color: white;
+  color: color.$gray-700;
+
+  &:hover {
+    background-color: color.$gray-50;
+  }
+
+  &:focus {
+    box-shadow:
+      0 0 0 4px color.$gray-100,
+      0 1px 2px 0 rgb(16 24 40 / 5%);
+  }
+
+  &:disabled {
+    border-color: color.$gray-200;
+    color: color.$gray-300;
+  }
+}
