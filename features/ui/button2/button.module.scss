@@ -40,3 +40,26 @@
   padding: space.$s3 space.$s5;
   line-height: 150%;
 }
+
+// Color and State
+.primary {
+  border-color: color.$primary-600;
+  background-color: color.$primary-600;
+  color: white;
+
+  &:hover {
+    border-color: color.$primary-700;
+    background-color: color.$primary-700;
+  }
+
+  &:focus {
+    box-shadow:
+      0 0 0 4px color.$primary-100,
+      0 1px 2px 0 rgb(16 24 40 / 5%);
+  }
+
+  &:disabled {
+    border-color: color.$primary-200;
+    background-color: color.$primary-200;
+  }
+}
