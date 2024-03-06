@@ -1,0 +1,42 @@
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/space";
+
+.btn {
+  border-radius: space.$s2;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: space.$s2;
+  box-shadow: 0 1px 2px 0 rgb(16 24 40 / 5%);
+}
+
+// Size
+.small {
+  font: font.$text-sm-medium;
+  font-size: space.$s3-1;
+  padding: space.$s2 space.$s3-1;
+  line-height: 142.857%;
+}
+
+.medium {
+  font: font.$text-sm-medium;
+  font-size: space.$s3-1;
+  padding: space.$s2-1 space.$s4;
+  line-height: 142.857%;
+}
+
+.large {
+  font: font.$text-md-medium;
+  font-size: space.$s4;
+  padding: space.$s2-1 space.$s4-1;
+  line-height: 150%;
+}
+
+.xlarge {
+  font: font.$text-md-medium;
+  font-size: space.$s4;
+  padding: space.$s3 space.$s5;
+  line-height: 150%;
+}
