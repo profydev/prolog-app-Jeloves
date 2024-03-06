@@ -137,3 +137,40 @@
     color: color.$gray-300;
   }
 }
+
+.error {
+  border-color: color.$error-600;
+  background-color: color.$error-600;
+  color: white;
+
+  &:hover {
+    border-color: color.$error-700;
+    background-color: color.$error-700;
+  }
+
+  &:focus {
+    box-shadow:
+      0 0 0 4px color.$error-100,
+      0 1px 2px 0 rgb(16 24 40 / 5%);
+  }
+
+  &:disabled {
+    border-color: color.$error-200;
+    background-color: color.$error-200;
+  }
+}
+
+.empty-error {
+  border: none;
+  background: none;
+  color: color.$error-700;
+  box-shadow: none;
+
+  &:hover {
+    background-color: color.$error-50;
+  }
+
+  &:disabled {
+    color: color.$error-300;
+  }
+}
