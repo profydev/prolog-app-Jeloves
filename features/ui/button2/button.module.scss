@@ -12,12 +12,21 @@
   box-shadow: 0 1px 2px 0 rgb(16 24 40 / 5%);
 }
 
+.icon {
+  width: space.$s5;
+  height: space.$s5;
+}
+
 // Size
 .small {
   font: font.$text-sm-medium;
   font-size: space.$s3-1;
   padding: space.$s2 space.$s3-1;
   line-height: 142.857%;
+
+  &.iconOnly {
+    padding: space.$s2;
+  }
 }
 
 .medium {
@@ -25,6 +34,10 @@
   font-size: space.$s3-1;
   padding: space.$s2-1 space.$s4;
   line-height: 142.857%;
+
+  &.iconOnly {
+    padding: space.$s2-1;
+  }
 }
 
 .large {
@@ -32,6 +45,10 @@
   font-size: space.$s4;
   padding: space.$s2-1 space.$s4-1;
   line-height: 150%;
+
+  &.iconOnly {
+    padding: space.$s2-1;
+  }
 }
 
 .xlarge {
@@ -39,6 +56,10 @@
   font-size: space.$s4;
   padding: space.$s3 space.$s5;
   line-height: 150%;
+
+  &.iconOnly {
+    padding: space.$s3;
+  }
 }
 
 // Color and State
