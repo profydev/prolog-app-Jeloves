@@ -107,3 +107,33 @@
     color: color.$gray-300;
   }
 }
+
+.empty {
+  border: none;
+  background: none;
+  color: color.$primary-700;
+  box-shadow: none;
+
+  &:hover {
+    background-color: color.$primary-50;
+  }
+
+  &:disabled {
+    color: color.$gray-300;
+  }
+}
+
+.empty-gray {
+  border: none;
+  background: none;
+  color: color.$gray-500;
+  box-shadow: none;
+
+  &:hover {
+    background-color: color.$gray-50;
+  }
+
+  &:disabled {
+    color: color.$gray-300;
+  }
+}
