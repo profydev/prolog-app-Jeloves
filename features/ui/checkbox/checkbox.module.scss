@@ -1,13 +1,31 @@
 @use "@styles/color";
+@use "@styles/font";
 @use "@styles/space";
 
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: space.$s2;
+}
+
 .label {
-  border: 1px solid color.$gray-300;
+  border: space.$s0-1 solid color.$gray-300;
   background: white;
   background-repeat: no-repeat;
   background-position: center;
-  position: absolute;
+  position: relative;
   cursor: pointer;
+
+  &:hover {
+    background-color: color.$primary-50;
+    border-color: color.$primary-600;
+  }
+
+  &:focus {
+    border-radius: space.$s1-1;
+    border-color: color.$primary-300;
+    box-shadow: 0 0 0 space.$s1 color.$primary-100;
+  }
 
   &.small {
     width: space.$s4;
@@ -24,10 +42,32 @@
   }
 }
 
+.labelText {
+  color: color.$gray-700;
+
+  &.small {
+    font: font.$text-sm-medium;
+    font-size: space.$s3-1;
+    line-height: 142.857%;
+  }
+
+  &.medium {
+    font: font.$text-md-medium;
+    font-size: space.$s4;
+    line-height: 150%;
+  }
+}
+
 .input {
   display: none;
 }
 
 .input:checked + .label {
   background-image: url("/icons/check.svg");
+  background-color: color.$primary-50;
+  border-color: color.$primary-600;
+
+  &:focus {
+    border-color: color.$primary-600;
+  }
 }
