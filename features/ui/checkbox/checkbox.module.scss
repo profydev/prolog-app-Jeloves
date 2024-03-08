@@ -1,0 +1,33 @@
+@use "@styles/color";
+@use "@styles/space";
+
+.label {
+  border: 1px solid color.$gray-300;
+  background: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  cursor: pointer;
+
+  &.small {
+    width: space.$s4;
+    height: space.$s4;
+    background-size: space.$s3 space.$s3;
+    border-radius: space.$s1;
+  }
+
+  &.medium {
+    width: space.$s5;
+    height: space.$s5;
+    background-size: space.$s3-1 space.$s3-1;
+    border-radius: space.$s1-1;
+  }
+}
+
+.input {
+  display: none;
+}
+
+.input:checked + .label {
+  background-image: url("/icons/check.svg");
+}
