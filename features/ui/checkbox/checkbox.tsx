@@ -17,36 +17,24 @@ export function Checkbox(props: CheckboxPropsType) {
     [styles[size]]: size,
   };
 
-  const spanClasses = {
-    [styles.labelText]: true,
-    [styles[size]]: size,
-  };
+  const labelTextElement = <span className={styles.labelText}>{text}</span>;
 
-  const labelEl = (
-    <label
-      {...label}
-      htmlFor="checkboxID"
-      className={classNames(labelClasses)}
-    ></label>
-  );
-  const spanEl = <span className={classNames(spanClasses)}>{text}</span>;
-
+  // When :disabling this component, only <input> must be disabled.
   return (
-    <div className={styles.checkboxContainer}>
+    <>
       <input
         {...input}
         type="checkbox"
         id="checkboxID"
         className={styles.input}
       />
-      {text ? (
-        <>
-          {labelEl}
-          {spanEl}
-        </>
-      ) : (
-        <>{labelEl}</>
-      )}
-    </div>
+      <label
+        {...label}
+        htmlFor="checkboxID"
+        className={classNames(labelClasses)}
+      >
+        {text !== null && <>{labelTextElement}</>}
+      </label>
+    </>
   );
 }

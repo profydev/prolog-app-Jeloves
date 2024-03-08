@@ -2,19 +2,16 @@
 @use "@styles/font";
 @use "@styles/space";
 
-.checkboxContainer {
+.label {
   display: flex;
   align-items: center;
-  gap: space.$s2;
-}
-
-.label {
   border: space.$s0-1 solid color.$gray-300;
   background: white;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
   cursor: pointer;
+  color: color.$gray-700;
 
   &:hover {
     background-color: color.$primary-50;
@@ -32,6 +29,13 @@
     height: space.$s4;
     background-size: space.$s3 space.$s3;
     border-radius: space.$s1;
+
+    .labelText {
+      font: font.$text-sm-medium;
+      font-size: space.$s3-1;
+      line-height: 142.857%;
+      padding-left: calc(space.$s4 + space.$s2);
+    }
   }
 
   &.medium {
@@ -39,22 +43,13 @@
     height: space.$s5;
     background-size: space.$s3-1 space.$s3-1;
     border-radius: space.$s1-1;
-  }
-}
 
-.labelText {
-  color: color.$gray-700;
-
-  &.small {
-    font: font.$text-sm-medium;
-    font-size: space.$s3-1;
-    line-height: 142.857%;
-  }
-
-  &.medium {
-    font: font.$text-md-medium;
-    font-size: space.$s4;
-    line-height: 150%;
+    .labelText {
+      font: font.$text-md-medium;
+      font-size: space.$s4;
+      line-height: 150%;
+      padding-left: calc(space.$s5 + space.$s3);
+    }
   }
 }
 
@@ -70,4 +65,11 @@
   &:focus {
     border-color: color.$primary-600;
   }
+}
+/* stylelint-disable-next-line no-descending-specificity */
+.input:disabled + .label {
+  background-image: url("/icons/gray-check.svg");
+  background-color: color.$gray-100;
+  border-color: color.$gray-200;
+  color: color.$gray-300;
 }
