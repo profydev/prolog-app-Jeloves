@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import { Select } from "./select";
+import { Select, SelectPropsType } from "./select";
 
 export default {
   title: "Select/Select",
@@ -11,6 +11,6 @@ export default {
   },
 } as Meta<typeof Select>;
 
-const Template: StoryFn = (args) => <Select {...args} />;
+const Template: StoryFn<SelectPropsType> = (args) => <Select {...args} />;
 
 export const Default = Template.bind({});

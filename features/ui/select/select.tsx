@@ -2,13 +2,17 @@ import styles from "./select.module.scss";
 
 // icon, label, hint, error
 export type SelectPropsType = {
-  label: string | null;
   icon: string | null;
-  hint: string | null;
-  error: string | null;
 };
 
-export function Select() {
+export function Select(props: SelectPropsType) {
+  const { icon } = props;
+
+  const iconElement = icon ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img className={styles.icon} alt="icon" src={icon}></img>
+  ) : null;
+
   const handleOnClick = () => {
     alert("hello");
   };
@@ -16,6 +20,7 @@ export function Select() {
     <div>
       <label htmlFor="selectID">Team member</label>
       <div className={styles.content} onClick={handleOnClick}>
+        {iconElement}
         <span className={styles.text}>Select team member</span>
         {/*eslint-disable-next-line @next/next/no-img-element*/}
         <img
