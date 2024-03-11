@@ -57,7 +57,7 @@
   display: none;
 }
 
-.input:checked + .label {
+.checked {
   background-image: url("/icons/check.svg");
   background-color: color.$primary-50;
   border-color: color.$primary-600;
@@ -66,10 +66,28 @@
     border-color: color.$primary-600;
   }
 }
+
+.indeterminate {
+  background-image: url("/icons/minus.svg");
+  background-color: color.$primary-50;
+  border-color: color.$primary-600;
+
+  &:focus {
+    border-color: color.$primary-600;
+  }
+}
+
 /* stylelint-disable-next-line no-descending-specificity */
 .input:disabled + .label {
-  background-image: url("/icons/gray-check.svg");
   background-color: color.$gray-100;
   border-color: color.$gray-200;
   color: color.$gray-300;
+
+  &.checked {
+    background-image: url("/icons/gray-check.svg");
+  }
+
+  &.indeterminate {
+    background-image: url("/icons/gray-minus.svg");
+  }
 }
