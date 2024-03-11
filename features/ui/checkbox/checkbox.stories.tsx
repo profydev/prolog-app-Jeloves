@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import { Checkbox } from "./checkbox";
+import { Checkbox, CheckboxPropsType } from "./checkbox";
 
 export default {
   title: "Checkbox/Checkbox",
@@ -11,6 +11,6 @@ export default {
   },
 } as Meta<typeof Checkbox>;
 
-const Template: StoryFn = () => <Checkbox />;
+const Template: StoryFn<CheckboxPropsType> = (args) => <Checkbox {...args} />;
 
 export const Default = Template.bind({});

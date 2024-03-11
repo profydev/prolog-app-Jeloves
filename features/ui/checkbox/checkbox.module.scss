@@ -1,0 +1,93 @@
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/space";
+
+.label {
+  display: flex;
+  align-items: center;
+  border: space.$s0-1 solid color.$gray-300;
+  background: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  color: color.$gray-700;
+
+  &:hover {
+    background-color: color.$primary-50;
+    border-color: color.$primary-600;
+  }
+
+  &:focus {
+    border-radius: space.$s1-1;
+    border-color: color.$primary-300;
+    box-shadow: 0 0 0 space.$s1 color.$primary-100;
+  }
+
+  &.small {
+    width: space.$s4;
+    height: space.$s4;
+    background-size: space.$s3 space.$s3;
+    border-radius: space.$s1;
+
+    .labelText {
+      font: font.$text-sm-medium;
+      font-size: space.$s3-1;
+      line-height: 142.857%;
+      padding-left: calc(space.$s4 + space.$s2);
+    }
+  }
+
+  &.medium {
+    width: space.$s5;
+    height: space.$s5;
+    background-size: space.$s3-1 space.$s3-1;
+    border-radius: space.$s1-1;
+
+    .labelText {
+      font: font.$text-md-medium;
+      font-size: space.$s4;
+      line-height: 150%;
+      padding-left: calc(space.$s5 + space.$s3);
+    }
+  }
+}
+
+.input {
+  display: none;
+}
+
+.checked {
+  background-image: url("/icons/check.svg");
+  background-color: color.$primary-50;
+  border-color: color.$primary-600;
+
+  &:focus {
+    border-color: color.$primary-600;
+  }
+}
+
+.indeterminate {
+  background-image: url("/icons/minus.svg");
+  background-color: color.$primary-50;
+  border-color: color.$primary-600;
+
+  &:focus {
+    border-color: color.$primary-600;
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.input:disabled + .label {
+  background-color: color.$gray-100;
+  border-color: color.$gray-200;
+  color: color.$gray-300;
+
+  &.checked {
+    background-image: url("/icons/gray-check.svg");
+  }
+
+  &.indeterminate {
+    background-image: url("/icons/gray-minus.svg");
+  }
+}
