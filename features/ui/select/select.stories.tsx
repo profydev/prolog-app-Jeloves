@@ -14,3 +14,7 @@ export default {
 const Template: StoryFn<SelectPropsType> = (args) => <Select {...args} />;
 
 export const Default = Template.bind({});
+
+Default.args = {
+  icon: "/icons/user.svg",
+};

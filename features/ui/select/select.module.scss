@@ -2,7 +2,12 @@
 @use "@styles/font";
 @use "@styles/space";
 
-label {
+.container {
+  width: fit-content;
+  height: fit-content;
+}
+
+.label {
   font: font.$text-sm-medium;
   color: color.$gray-700;
   line-height: 142.857%;
@@ -33,10 +38,6 @@ label {
   height: space.$s5;
 }
 
-select {
-  display: none;
-}
-
 .hint {
   color: color.$gray-500;
   font: font.$text-sm-regular;
@@ -44,5 +45,10 @@ select {
 }
 
 .icon {
-  background-color: red;
+  width: space.$s5;
+  height: space.$s5;
+}
+
+.select {
+  display: none;
 }

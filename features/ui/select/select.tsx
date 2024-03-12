@@ -8,19 +8,21 @@ export type SelectPropsType = {
 export function Select(props: SelectPropsType) {
   const { icon } = props;
 
-  const iconElement = icon ? (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img className={styles.icon} alt="icon" src={icon}></img>
-  ) : null;
+  // eslint-disable-next-line @next/next/no-img-element
+  const iconElement = (
+    <img className={styles.icon} alt="icon" src={icon ? icon : ""}></img>
+  );
 
   const handleOnClick = () => {
     alert("hello");
   };
   return (
-    <div>
-      <label htmlFor="selectID">Team member</label>
+    <div className={styles.container}>
+      <label className={styles.label} htmlFor="selectID">
+        Team member
+      </label>
       <div className={styles.content} onClick={handleOnClick}>
-        {iconElement}
+        {icon !== null && iconElement}
         <span className={styles.text}>Select team member</span>
         {/*eslint-disable-next-line @next/next/no-img-element*/}
         <img
@@ -30,6 +32,11 @@ export function Select(props: SelectPropsType) {
         ></img>
       </div>
       <span className={styles.hint}>This is a hint text to help user.</span>
+      <select className={styles.select} id="selectID">
+        <option value="blue"></option>
+        <option value="red"></option>
+        <option value="green"></option>
+      </select>
     </div>
   );
 }
