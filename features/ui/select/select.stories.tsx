@@ -17,4 +17,6 @@ export const Default = Template.bind({});
 
 Default.args = {
   icon: "/icons/user.svg",
+  label: "Team member",
+  hint: "This is a hint text to help user.",
 };

@@ -3,24 +3,32 @@ import styles from "./select.module.scss";
 // icon, label, hint, error
 export type SelectPropsType = {
   icon: string | null;
+  label: string | null;
+  hint: string | null;
 };
 
 export function Select(props: SelectPropsType) {
-  const { icon } = props;
+  const { icon, label, hint } = props;
 
-  // eslint-disable-next-line @next/next/no-img-element
   const iconElement = (
+    // eslint-disable-next-line @next/next/no-img-element
     <img className={styles.icon} alt="icon" src={icon ? icon : ""}></img>
   );
+
+  const labelElement = (
+    <label className={styles.label} htmlFor="selectID">
+      {label}
+    </label>
+  );
+
+  const hintElement = <span className={styles.hint}>{hint}</span>;
 
   const handleOnClick = () => {
     alert("hello");
   };
   return (
     <div className={styles.container}>
-      <label className={styles.label} htmlFor="selectID">
-        Team member
-      </label>
+      {label !== null && labelElement}
       <div className={styles.content} onClick={handleOnClick}>
         {icon !== null && iconElement}
         <span className={styles.text}>Select team member</span>
@@ -31,7 +39,7 @@ export function Select(props: SelectPropsType) {
           src="/icons/chevron-down.svg"
         ></img>
       </div>
-      <span className={styles.hint}>This is a hint text to help user.</span>
+      {icon !== null && hintElement}
       <select className={styles.select} id="selectID">
         <option value="blue"></option>
         <option value="red"></option>
